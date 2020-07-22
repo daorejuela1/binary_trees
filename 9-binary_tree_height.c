@@ -13,9 +13,11 @@ size_t binary_tree_height(const binary_tree_t *tree)
 		return (0);
 	countLeft(&cleft, tree);
 	countRight(&cright, tree);
+	cleft --;
+	cright --;
 	if (cleft < cright)
-		return (cright - 1);
-	return (cleft - 1);
+		return (cright);
+	return (cleft);
 }
 /**
  *countLeft - count of left node
