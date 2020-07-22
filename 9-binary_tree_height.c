@@ -7,45 +7,26 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	int cleft = 0, cright = 0;
+	int countLeft = 0, countRight = 0;
 
 	if (tree == NULL)
 		return (0);
-	countLeft(&cleft, tree);
-	countRight(&cright, tree);
-	cleft --;
-	cright --;
-	if (cleft < cright)
-		return (cright);
-	return (cleft);
+	return (countpa(countLeft, countRight, tree) - 1);
 }
 /**
- *countLeft - count of left node
- *@tree: value of binary tree
- *@c2: counter
- *Return: value of left node
+ *countpa - counter for parametter
+ *@countLeft: counter for left node
+ *@countRight: counter for right node
+ *@tree: binari tree
+ *Return: value of counter
  */
-int countLeft(int *c2, const binary_tree_t *tree)
+int countpa(int countLeft, int countRight, const binary_tree_t *tree)
 {
-	if (tree != NULL)
-	{
-		countLeft(c2, tree->left);
-		*c2 = *c2 + 1;
-	}
-	return (*c2);
-}
-/**
- *countRight - count of righ node
- *@tree: value of binary tree
- *@c2: counter
- *Return: value of right node
- */
-int countRight(int *c2, const binary_tree_t *tree)
-{
-	if (tree != NULL)
-	{
-		countRight(c2, tree->right);
-		*c2 = *c2 + 1;
-	}
-	return (*c2);
+	if (tree == NULL)
+		return (0);
+		countLeft = countpa(countLeft, countRight, tree->left);
+		countRight = countpa(countLeft, countRight, tree->right);
+		if (countRight > countLeft)
+			return (countRight + 1);
+		return (countLeft + 1);
 }
