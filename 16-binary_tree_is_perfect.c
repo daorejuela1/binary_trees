@@ -59,7 +59,7 @@ int count_i(int *c1, int *in, int *c2, const binary_tree_t *tree)
 	}
 	count_i(c1, in, c2, tree->left);
 	count_i(c1, in, c2, tree->right);
-	if (*c1 != *c2)
-		return (0);
-	return (1);
+	if (*c1 >= 1)
+		return (1);
+	return (0);
 }
