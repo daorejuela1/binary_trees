@@ -23,13 +23,12 @@ int count(int *c1, const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
-	if (tree->left != NULL && tree->right != NULL)
-		*c1 = 1;
+	if (tree->left == NULL && tree->right == NULL)
+		return (*c1 = 1);
 	else if (tree->left == NULL && tree->right != NULL)
-		return (*c1 = 0);
+		*c1 = 0;
 	else if (tree->right == NULL && tree->left != NULL)
-		return (*c1 = 0);
-	count(c1, tree->left);
-	count(c1, tree->right);
+		*c1 = 0;
+	*c1 = count(c1, tree->left) && count(c1, tree->right);
 	return (*c1);
 }
