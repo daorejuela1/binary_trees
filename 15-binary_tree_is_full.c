@@ -26,9 +26,9 @@ int count(int *c1, const binary_tree_t *tree)
 	if (tree->left != NULL && tree->right != NULL)
 		*c1 = 1;
 	else if (tree->left == NULL && tree->right != NULL)
-		*c1 = 0;
+		return (*c1 = 0);
 	else if (tree->right == NULL && tree->left != NULL)
-		*c1 = 0;
+		return (*c1 = 0);
 	count(c1, tree->left);
 	count(c1, tree->right);
 	return (*c1);
