@@ -75,3 +75,8 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 }
 
 ```
+
+## Deletion
+
+When removing a node from a binary search tree it is mandatory to maintain the in-order sequence of the nodes. There are many possibilities to do this. 
+
