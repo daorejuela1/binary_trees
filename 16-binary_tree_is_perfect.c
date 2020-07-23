@@ -25,7 +25,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 int count_i(int *c1, int *in, int *c2, const binary_tree_t *tree)
 {
 	const binary_tree_t *temp = NULL;
-	
+
 	if (tree == NULL)
 		return (0);
 	count_i(c1, in, c2, tree->left);
