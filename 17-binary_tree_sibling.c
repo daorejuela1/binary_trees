@@ -1,8 +1,8 @@
 #include "binary_trees.h"
 /**
- *binary_tree_is_perfect - checks binary tree is perfect
- *@tree: value of binary tree
- *Return: 1 if is perfect 0 if not
+ *binary_tree_sibling - checks sibling of the node
+ *@node: value of node
+ *Return: value of sibling node
  */
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
