@@ -80,3 +80,20 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 
 When removing a node from a binary search tree it is mandatory to maintain the in-order sequence of the nodes. There are many possibilities to do this. 
 
+```
+#include "binary_trees.h"
+
+/**
+ *binary_tree_delete - insert node to the left
+ *@tree: value of binary tree
+ */
+void binary_tree_delete(binary_tree_t *tree)
+{
+	if (tree == NULL)
+		return;
+	binary_tree_delete(tree->left);
+	binary_tree_delete(tree->right);
+	free(tree);
+}
+
+```
