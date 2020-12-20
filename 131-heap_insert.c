@@ -10,7 +10,7 @@ heap_t *recursive_insert(heap_t *root, heap_t *new_node);
 heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *new_node = NULL, *actual_node = NULL;
-	list_t *queue = NULL;
+	list_t *queue = NULL, *actual_queue;
 
 	if (!root)
 		return (NULL);
@@ -25,7 +25,9 @@ heap_t *heap_insert(heap_t **root, int value)
 	enqueue(&queue, *root);
 	while (queue)
 	{
-		actual_node = dequeue(&queue);
+		actual_queue = dequeue(&queue);
+		actual_node = actual_queue->node;
+		free(actual_queue);
 		new_node->parent = actual_node;
 		if (!actual_node->left)
 		{
@@ -85,13 +87,13 @@ void enqueue(list_t **queue, heap_t *new_node)
  *
  * Return: Null or the first node of the queue
  */
-heap_t *dequeue(list_t **queue)
+list_t *dequeue(list_t **queue)
 {
 	list_t *temporal = NULL;
 
 	temporal = *queue;
 	*queue = (*queue)->next;
-	return (temporal->node);
+	return (temporal);
 }
 
 /**

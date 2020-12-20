@@ -61,7 +61,7 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 int binary_tree_is_bst(const binary_tree_t *tree);
 heap_t *heap_insert(heap_t **root, int value);
 void enqueue(list_t **queue, heap_t *new_node);
-heap_t *dequeue(list_t **queue);
+list_t *dequeue(list_t **queue);
 void swap(heap_t *node_a, heap_t *node_b);
 #endif
 
