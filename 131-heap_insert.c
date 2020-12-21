@@ -27,8 +27,8 @@ heap_t *heap_insert(heap_t **root, int value)
 	{
 		actual_queue = dequeue(&queue);
 		actual_node = actual_queue->node;
-		free(actual_queue);
 		new_node->parent = actual_node;
+		free(actual_queue);
 		if (!actual_node->left)
 		{
 			actual_node->left = new_node;
@@ -53,8 +53,7 @@ heap_t *heap_insert(heap_t **root, int value)
 			enqueue(&queue, actual_node->right);
 		}
 	}
-	if (queue)
-		free_queue(queue);
+	free_queue(queue);
 	return (new_node);
 }
 
@@ -142,18 +141,19 @@ void swap(heap_t *node, heap_t *parent)
 
 /**
  * free_queue - free the remainings mallocs in the que
- * @queue: queue pointer
+ * @head: queue pointer
  *
  * Return: Null or the first node of the queue
  */
-void free_queue(list_t *queue)
+void free_queue(list_t *head)
 {
-	list_t *temporal = NULL;
+	int i = 0;
+	void *tmp = NULL;
 
-	while(queue)
+	for (i = 0; head != NULL; i++)
 	{
-		temporal = queue;
-		free(temporal);
-		queue = queue->next;
+		tmp = head;
+		head = head->next;
+		free(tmp);
 	}
 }
