@@ -135,7 +135,11 @@ void swap(heap_t *node, heap_t *parent)
 			node->left->parent = node;
 	}
 	parent->left = left_temp;
+	if (parent->left)
+		parent->left->parent = parent;
 	parent->right = right_temp;
+	if (parent->right)
+		parent->right->parent = parent;
 	parent->parent = node;
 }
 
