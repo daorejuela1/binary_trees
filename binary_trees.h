@@ -64,5 +64,6 @@ void enqueue(list_t **queue, heap_t *new_node);
 list_t *dequeue(list_t **queue);
 void swap(heap_t *node_a, heap_t *node_b);
 void free_queue(list_t *queue);
+int binary_tree_is_bst(const binary_tree_t *tree);
 #endif
 
